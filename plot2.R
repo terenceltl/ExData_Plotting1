@@ -1,6 +1,9 @@
 ## Project 1
 ## Plot 2
-# The file household_power_consumption.txt should be in the working dir.
+
+# The file household_power_consumption.txt should be in the working dir,
+# and it can be downloaded at:
+# https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip
 # The PNG file will also be exported to the working dir.
 
 # Use Sys.setlocale("LC_TIME", "English") if necessary
@@ -26,6 +29,6 @@ plot2 <-function(){
 
 plot2()
 # 480x480 is the default for png(), but no harm to be explicit
-png("plot2.png",width=480,height=480)
+png("plot2.png",width=480,height=480,bg = "transparent")
 plot2()
 dev.off()

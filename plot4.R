@@ -1,6 +1,9 @@
 ## Project 1
 ## Plot 4
-# The file household_power_consumption.txt should be in the working dir.
+
+# The file household_power_consumption.txt should be in the working dir,
+# and it can be downloaded at:
+# https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip
 # The PNG file will also be exported to the working dir.
 
 # Use Sys.setlocale("LC_TIME", "English") if necessary
@@ -29,15 +32,19 @@ plot4 <- function(){
                 xlab=" ",ylab="Energy sub metering"))
   with(epc,lines(DateTime,Sub_metering_2,col="red"))
   with(epc,lines(DateTime,Sub_metering_3,col="blue"))
+  oldpar = par("cex")
+  # this will make legend size match with the reference image
+  par(cex=oldpar*0.9)
   legend("topright",col=c("black","red","blue"),lty=1,
          legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
          bty="n")
+  par(cex=oldpar) # restore the cex value
   with(epc,plot(DateTime,Global_reactive_power,type="l",
                 xlab="datetime"))
 }
 
 plot4()
 # 480x480 is the default for png(), but no harm to be explicit
-png("plot4.png",width=480,height=480)
+png("plot4.png",width=480,height=480,bg = "transparent")
 plot4()
 dev.off()
